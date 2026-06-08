@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-udemy",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "NodeJS-Udemy"
+  },
+  "license": "ISC",
+  "author": "Julius Mwangi",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "julius.js"
+  }
+}
