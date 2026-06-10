@@ -1,5 +1,5 @@
-const { send } = require('./request.cjs');
-const { read } = require('./response.cjs');
+const { send } = require('./internals/request.cjs');
+const { read } = require('./internals/response.cjs');
 
 function request(url, data) {
     send(url, data);

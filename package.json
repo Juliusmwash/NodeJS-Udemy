@@ -8,9 +8,12 @@
   },
   "license": "ISC",
   "author": "Julius Mwangi",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "julius.js"
+    "dev": "node MODULES-EXAMPLE/https.cjs"
+  },
+  "dependencies": {
+    "axios": "^1.17.0"
   }
 }
