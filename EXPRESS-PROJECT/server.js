@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use('/site', express.static('public'));
 app.use(express.json());
 
 app.use(homeRouter);
