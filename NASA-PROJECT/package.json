@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "client": "npm start --prefix client",
+    "server": "npm run watch --prefix server",
+    "watch": "npm run client & npm run server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
