@@ -20,3 +20,9 @@ app.get('/timer', (req, res) => {
 });
 
 app.listen(3000);
+
+/*
+Refer to the following links for site delay explanations and how they directly affect customers
+// Nielsen Norman Group
+// udemy Blog speed matters
+*/
