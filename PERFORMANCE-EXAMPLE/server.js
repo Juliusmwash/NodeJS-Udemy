@@ -22,11 +22,22 @@ app.get('/timer', (req, res) => {
 app.listen(3000);
 
 /*
-Here are some of the real life blocking functions:
-    JSON.stringify
-    JSON.parse
-    crypto module
+Here are some of the real life blocking loops and functions:
+    while (...)
+    for (...)
+    JSON.stringify(hugeObject)
+    JSON.parse(hugeString)
+    crypto.pbkdf2Sync(...)
     ...
+
+Here are some of the non-blocking functions:
+    await fetch(...)
+    await fs.promises.readFile(...)
+    setTimeout(...)
+    setImmediate(...)
+    crypto.pbkdf2(...)
+    ...
+
 Refer to the following links for site delay explanations and how they directly affect customers
 // Nielsen Norman Group
 // udemy Blog speed matters
