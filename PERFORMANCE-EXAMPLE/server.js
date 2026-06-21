@@ -22,6 +22,11 @@ app.get('/timer', (req, res) => {
 app.listen(3000);
 
 /*
+Here are some of the real life blocking functions:
+    JSON.stringify
+    JSON.parse
+    crypto module
+    ...
 Refer to the following links for site delay explanations and how they directly affect customers
 // Nielsen Norman Group
 // udemy Blog speed matters
