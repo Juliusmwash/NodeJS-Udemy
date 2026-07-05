@@ -21,7 +21,10 @@ const launchesSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	customers: [ String ],
+	customers: {
+		type: [String],
+		default: []
+	},
 	upcoming: {
 		type: Boolean,
 		required: true,
