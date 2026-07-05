@@ -9,26 +9,34 @@ async function httpGetAllLaunches(req, res) {
 }
 
 async function httpAddNewLaunch(req, res) {
-	const launch = req.body;
+	try {
+		const launch = req.body;
 
-	if (!launch.mission || !launch.rocket || !launch.launchDate
-		|| !launch.target) {
-		return res.status(400).json({
-			error: 'Missing required launch property'
-		});
+		if (!launch.mission || !launch.rocket || !launch.launchDate
+			|| !launch.target) {
+			return res.status(400).json({
+				error: 'Missing required launch property'
+			});
+		}
+
+		launch.launchDate = new Date(launch.launchDate);
+		//if (launch.launchDate.toString() === 'Invalid Date') {
+		if (isNaN(launch.launchDate)) {
+			return res.status(400).json({
+				error: 'Invalid launch date',
+			});
+		}
+
+		await addNewLaunch(launch);
+
+		return res.status(201).json(launch);
+	} catch (err) {
+		if (err.code === 'PLANET_NOT_FOUND') {
+			return res.status(400).json({ error: 'Unknown habitable planet' });
+		}
+
+		return res.status(500).json({ error: 'Server Side Error' });
 	}
-
-	launch.launchDate = new Date(launch.launchDate);
-	//if (launch.launchDate.toString() === 'Invalid Date') {
-	if (isNaN(launch.launchDate)) {
-		return res.status(400).json({
-			error: 'Invalid launch date',
-		});
-	}
-
-	await addNewLaunch(launch);
-
-	return res.status(201).json(launch);
 }
 
 async function httpAbortLaunch(req, res) {
@@ -53,13 +61,13 @@ async function httpAbortLaunch(req, res) {
 	console.log('launch found, heading to abort');
 	const aborted = await abortLaunchById(launchId);
 	console.log(aborted);
-	
+
 	if (!aborted) {
 		return res.status(400).json({
 			error: 'Launch not aborted'
 		})
 	}
-	return res.status(200).json({ok: true});
+	return res.status(200).json({ ok: true });
 }
 
 module.exports = {
