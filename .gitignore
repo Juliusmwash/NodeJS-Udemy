@@ -3,3 +3,4 @@ logs
 *.log
 build
 password.txt
+.env
