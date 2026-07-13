@@ -19,7 +19,6 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/v1', api);
 
 /*
-
 // The following triggers an error: worked in express 4, but in Express 5 the pattern
 //  '/*' is no longer valid.
 // The * wildcard must have a parameter name associated with it.
@@ -27,7 +26,6 @@ app.use('/v1', api);
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 })
-
 */
 
 // The working approaches:
