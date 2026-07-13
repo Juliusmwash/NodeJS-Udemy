@@ -6,11 +6,13 @@ on:
       - master
     paths:
       - "NASA-PROJECT/**"
+      - '.github/workflows/nasa.yml'
   pull_request:
     branches:
       - master
     paths:
       - "NASA-PROJECT/**"
+      - '.github/workflows/nasa.yml'
 jobs:
   build:
     env:
