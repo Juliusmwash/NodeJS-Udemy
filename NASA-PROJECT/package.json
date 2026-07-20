@@ -3,14 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "client": "npm start --prefix client",
-    "server": "npm run watch --prefix server",
+    "client": "npm start --workspace=client",
+    "server": "npm run watch --workspace=server",
     "watch": "npm run client & npm run server",
-    "build": "npm run build --prefix client",
-    "deploy": "npm run build --prefix client && npm start --prefix server",
-    "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
-    "test": "npm test --prefix server && npm test --prefix client"
+    "build": "npm run build --workspace=client",
+    "deploy": "npm run build --workspace=client && npm start --workspace=server",
+    "deploy-cluster": "npm run build --workspace=client && npm run cluster --workspace=server",
+    "test": "npm test --workspace=server && npm test --workspace=client",
+    "start": "npm start --workspace=server"
   },
   "keywords": [],
   "author": "",
