@@ -1,0 +1,44 @@
+query {
+  product(id: "redshoe") {
+    description
+    price
+  }
+  products {
+    description
+    reviews {
+      rating
+      comment
+    }
+  }
+  orders {
+    subtotal
+    items {
+      quantity
+      product {
+        id
+        price
+        reviews {
+          comment
+          rating
+        }
+      }
+    }
+  }
+}
+
+
+
+mutation {
+  addNewProduct(id: "orangejacket", description: "Orange Jacket", price: 70.55) {
+    id
+    reviews {
+      rating
+    }
+  }
+  shoeReview: addNewProductReview(id: "redshoe", rating: 5, comment: "Great coding shoes!") {
+		rating
+	}
+  jacketReview: addNewProductReview(id: "orangejacket", rating: 4, comment: "Very warm and orange") {
+		rating
+	}
+}

@@ -1,6 +1,8 @@
 const { getAllProducts,
 	getProductsByPrice,
-	getProductById } = require('./products.model');
+	getProductById,
+	createNewProduct,
+	createNewProductReview } = require('./products.model');
 
 module.exports =  {
 	Query: {
@@ -13,6 +15,14 @@ module.exports =  {
 		},
 		product: (_, args) => {
 			return getProductById(args.id);
+		}
+	},
+	Mutation: {
+		addNewProduct: (_, args) => {
+			return createNewProduct(args.id, args.description, args.price);
+		},
+		addNewProductReview: (_, args) => {
+			return createNewProductReview(args.id, args.rating, args.comment);
 		}
 	}
 };
